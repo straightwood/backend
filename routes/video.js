@@ -36,15 +36,17 @@ router.post('/api/updateVideoLearnInfo', async(ctx, next) => {
   let data = {...ctx.request.body};
   let userId = data.userId;
   let videoId = data.videoId;
-
+  
   let result = await new Promise((resolve, reject) => {
-    let sql = `UPDATE * FROM video_learn_info WHERE userId = '${userId}'`
+    let sql = `UPDATE video_learn_info SET learned = 1 WHERE userId = '${userId}' AND videoId = '${videoId}'`
     return db.query(sql, (err, data) => {
       if (err) throw err;
       resolve(data)
     })
   })
-  ctx.body = result
+  if(result.affectedRows == 1){
+    ctx.body = {msg:'成功'}
+  }
 })
 
 
