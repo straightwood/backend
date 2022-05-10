@@ -10,6 +10,8 @@ const index = require('./routes/index')
 const login = require('./routes/login')
 const video = require('./routes/video')
 const office = require('./routes/office')
+const task = require('./routes/task')
+const user = require('./routes/user')
 
 
 // error handler
@@ -40,6 +42,8 @@ app.use(index.routes(), index.allowedMethods())
 app.use(login.routes(), login.allowedMethods())
 app.use(video.routes(), video.allowedMethods())
 app.use(office.routes(), office.allowedMethods())
+app.use(task.routes(), task.allowedMethods())
+app.use(user.routes(), user.allowedMethods())
 
 
 // error-handling

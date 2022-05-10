@@ -5,7 +5,7 @@ const pool  = mysql.createPool({
     host     : 'localhost', 
     user     : 'root',    
     password : 'w971810648',   
-    database : 'web3d'  
+    database : 'test'  
 })
 
 //请求封装
